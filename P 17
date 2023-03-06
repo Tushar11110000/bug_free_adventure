@@ -1,0 +1,17 @@
+
+#scaling video
+import numpy as np
+import cv2
+scalingFactorx=1
+scalingFactory=2
+cap=cv2.VideoCapture(0)
+while(True):
+    ret,frame=cap.read()
+    frame=cv2.resize(frame,None,fx=scalingFactorx,fy=scalingFactory,interpolation=cv2.INTER_AREA)
+    img=frame
+    cv2.imshow('Smaller Window',img)
+    if cv2.waitKey(1)&0xFF==ord('q'):
+        break
+cap.release()
+cv2.destroyAllWindows()
+
