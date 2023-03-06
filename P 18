@@ -1,0 +1,26 @@
+
+#edge detection in video
+import numpy as np
+import cv2
+kernelSize=23 #kernel bluring size
+
+#edge detection parameter
+parameter1=20
+parameter2=60
+intApertureSize=1
+
+cap=cv2.VideoCapture(0)
+while(True):
+    #capture frame by frame
+    ret, frame=cap.read()
+    #our operations on the frame come here
+    frame=cv2.GaussianBlur(frame,(kernelSize,kernelSize),0,0)
+    
+    frame=cv2.Canny(frame,parameter1,parameter2,intApertureSize)#Canny edge detection
+    cv2.imshow('Canny',frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+#when everything done, release capture
+cap.release()
+cv2.destroyAllWindows
+
