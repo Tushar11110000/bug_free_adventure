@@ -1,0 +1,21 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from skimage.io import imread,imshow
+from skimage import io
+
+image1= io.imread('C:/Users/tusha/Downloads/jeff.jpg')
+plt.subplot(121)
+imshow(image1)
+image2=io.imread('C:/Users/tusha/Downloads/jeff.jpg', as_gray=True)
+plt.subplot(122)
+imshow(image2);
+
+print(image1.shape)
+print(image1.size)
+print(image2.shape)
+print(image2.size)
+
+pixel_feat1=np.reshape(image2, (168*300))   #value(307*453) is same as dimension of image2
+pixel_feat1
+
