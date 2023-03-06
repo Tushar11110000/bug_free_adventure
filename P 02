@@ -1,0 +1,15 @@
+import cv2   #Gaussian Blur
+import numpy
+from matplotlib import pyplot as plt
+image=cv2.imread('C:/Users/tusha/Downloads/jeff.jpg')
+img=cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
+plt.subplot(221),plt.imshow(img)
+gray=cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
+plt.subplot(222),plt.imshow(gray,cmap='gray')
+image_GaussianBlur=cv2.GaussianBlur(gray,(9,9),10)
+#color conversiion, size sigma
+
+plt.subplot(223),plt.imshow(image_GaussianBlur,cmap='gray')
+image_GaussianBlur1=cv2.GaussianBlur(gray,(69,69),10)
+
+plt.subplot(224),plt.imshow(image_GaussianBlur1,cmap='gray')
