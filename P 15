@@ -1,0 +1,14 @@
+
+#Saving video
+
+import numpy as np
+import cv2
+
+#create writer object
+fileName='output.avi' #change the file name if needed
+imgSize=(640,480)
+frame_per_second=30.0
+fourcc=cv2.VideoWriter_fourcc(*'XVID')
+#writer=cv2.VideoWriter(fileName,cv2.VideoWriter_fourcc(*"MJPG"), frame_per_second, imgSize)
+writer=cv2.VideoWriter(fileName,fourcc,frame_per_second,imgSize)
+
