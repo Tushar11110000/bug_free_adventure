@@ -1,0 +1,19 @@
+#laplacian edge detector
+from PIL import Image
+from PIL import ImageFilter
+from pylab import*
+
+#create image object
+image1=Image.open('C:/Users/tusha/Downloads/jeff.jpg')
+image1.show()
+figure(0)
+image=image1.convert('L')
+image.show()
+figure(1)
+
+#find the edge by applying the filter iamgefilter find edge
+imageWithEdge=image.filter(ImageFilter.FIND_EDGES)
+
+#display the new image with edge dectition done
+imageWithEdge.show()
+figure(2)
