@@ -1,0 +1,30 @@
+#saving video
+
+import numpy as np
+import cv2
+
+#create writer object
+fileName='output.avi' #change the file name if needed
+imgSize=(640,480)#rows and colums
+frame_per_second=30.0
+fourcc=cv2.VideoWriter_fourcc(*'XVID')
+#writer=cv2.VideoWriter(fileName,cv2.VideoWriter_fourcc(*MJPEG),frames_per_second,imgSize)
+writer=cv2.VideoWriter(fileName,fourcc,frame_per_second,imgSize)
+
+#saving video
+cap = cv2.VideoCapture(0)
+
+while (cap.isOpened()):
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+    
+    if ret==True:
+        writer.write(frame)
+        cv2.imshow('video capture', frame)
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+    else:
+        break
+cap.release()
+writer.release()
+cv2.destroyAllWindows
